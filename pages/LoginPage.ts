@@ -14,7 +14,7 @@ export class LoginPage{
 
     //page construtor
     /**
-     * 
+     * store locator for Login page web elements 
      * @param page 
      */
     constructor(page: Page){
@@ -26,16 +26,16 @@ export class LoginPage{
         this.warningMessage = page.locator('.alert.alert-danger.alert-dismissible');
     }
 
-    //page actions 
+    //***page actions**** 
     /**
-     * 
+     * Navigate to Login Page 
      */
     async gotToLoginPage(){
         await this.page.goto('https://naveenautomationlabs.com/opencart/index.php?route=account/login');
     }
 
     /**
-     * 
+     * login to app using given email and password
      * @param email 
      * @param password 
      * @returns 
