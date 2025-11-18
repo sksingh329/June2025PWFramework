@@ -1,7 +1,6 @@
 import { Page, Locator } from '@playwright/test';
 import { ElementUtil } from '../utils/ElementUtils.js';
-import { LoginPage } from './LoginPage.js';
-import { resourceUsage } from 'process';
+import { ProductInfoPage } from './ProductInfoPage.js';
 
 export class ResultsPage{
     private readonly page: Page;
@@ -18,5 +17,11 @@ export class ResultsPage{
         let resultCount: number = await this.results.count();
         console.log(`Result count: ${resultCount}`);
         return resultCount;
+    }
+
+    async selectProduct(productName: string): Promise<ProductInfoPage>{
+        console.log(`Product name: ${productName}`);
+        await this.eleUtil.click(this.page.getByRole('link', { name: productName }));
+        return new ProductInfoPage(this.page);
     }
 }

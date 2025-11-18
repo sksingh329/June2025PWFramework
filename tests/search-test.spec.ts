@@ -1,4 +1,8 @@
+import {parse} from 'csv-parse/sync';
+import fs from 'fs';
+
 import {test, expect, FrameLocator} from '@playwright/test';
+
 import { LoginPage } from '../pages/LoginPage.js'
 import { HomePage } from '../pages/HomePage.js';
 import { ResultsPage } from '../pages/ResultsPage.js';
@@ -12,11 +16,32 @@ let searchData = [
 ]
 
 for(let product of searchData){
-    test(`test product search ${product.searchkey}`, async({page}) =>{
+    test.skip(`test product search ${product.searchkey}`, async({page}) =>{
         let login: LoginPage = new LoginPage(page);
         await login.gotToLoginPage();
         let homePage: HomePage = await login.doLogin('test123@test.com','test');
         let resultsPage: ResultsPage =  await homePage.doSearch(product.searchkey);
         expect(await resultsPage.getSearchResultsCount()).toBe(product.resultsCount);
+    });
+}
+
+type ProductSearchDataSchema = {
+    searchkey: string, 
+    resultsCount: string
+};
+
+let fileContent = fs.readFileSync('./test-data/product-search.csv', 'utf-8');
+let productSearchData: ProductSearchDataSchema[] = parse(fileContent, {
+    columns: true,
+    skip_empty_lines: true,
+});
+
+for(let product of productSearchData){
+    test(`test product search using csv ${product.searchkey}`, async({page}) =>{
+        let login: LoginPage = new LoginPage(page);
+        await login.gotToLoginPage();
+        let homePage: HomePage = await login.doLogin('test123@test.com','test');
+        let resultsPage: ResultsPage =  await homePage.doSearch(product.searchkey);
+        expect(await resultsPage.getSearchResultsCount()).toBe(parseInt(product.resultsCount, 10));
     });
 }

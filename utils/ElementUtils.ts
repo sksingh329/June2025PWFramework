@@ -122,13 +122,13 @@ export class ElementUtil{
           return textContent;
      }
 
-     async getElementInnerText(locator: customLocator): Promise<string | null>{
+     async getElementInnerText(locator: customLocator): Promise<string>{
           const innerText = await this.getLocator(locator).innerText();
           console.log(`Innertext of element ${locator} is ${innerText}`);
           return innerText;
      }
 
-     async getElementInputValue(locator: customLocator): Promise<string | null>{
+     async getElementInputValue(locator: customLocator): Promise<string>{
           const inputValue = await this.getLocator(locator).inputValue();
           console.log(`Input value of element ${locator} is ${inputValue}`);
           return inputValue;

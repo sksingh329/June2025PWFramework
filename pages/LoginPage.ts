@@ -38,7 +38,7 @@ export class LoginPage{
      * login to app using given email and password
      * @param email 
      * @param password 
-     * @returns 
+     * @returns HomePage
      */
     async doLogin(email: string, password: string): Promise<HomePage>{
         await this.eleUtil.fill(this.emailId,email);
@@ -55,5 +55,4 @@ export class LoginPage{
     async getInvalidLoginMessage(): Promise<string|null>{
         return await this.eleUtil.getElementTextContent(this.warningMessage);
     }
-
 }
