@@ -17,8 +17,7 @@ export class ProductInfoPage{
         this.productHeader = page.locator('h1');
         this.productImages = page.locator('div#content img');
         this.productMetaData = page.locator(`(//div[@id='content']//ul[@class='list-unstyled'])[1]/li`);
-        this.productPriceData = page.locator(`(//div[@id='content']//ul[@class='list-unstyled'])[1]`);
-
+        this.productPriceData = page.locator(`(//div[@id='content']//ul[@class='list-unstyled'])[2]/li`);
     }
 
     async getProductHeader(): Promise<string>{
@@ -28,6 +27,7 @@ export class ProductInfoPage{
     }
 
     async getImagesCount(): Promise<number>{
+        await this.eleUtil.waitForElementVisible(this.productImages);
         const imageCount = await this.productImages.count();
         console.log(`Image count for product ${this.getProductHeader()} is: ${imageCount}`);
         return imageCount;
@@ -39,15 +39,21 @@ export class ProductInfoPage{
         await this.getProductMetaData();
         await this.getProductPriceData();
 
-        console.log(`Full product detail: ${this.productHeader}`);
+        console.log(`Full product detail: ${await this.getProductHeader()}`);
+        this.printProductDetails();
 
         return this.productMap;
     }
 
+    private printProductDetails(){
+        for(const [key,value] of this.productMap){
+            console.log(`Key: ${key} and value: ${value}`);
+        }
+    }
+
     private async getProductMetaData(){
-        let productMetaDataList = await this.productMetaData.allInnerTexts();
+        let productMetaDataList: string[] = await this.productMetaData.allInnerTexts();
         for (let meta of productMetaDataList){
-            console.log(meta);
             let metaData: string[] = meta.split(':');
             let metaKey: string = metaData[0].trim();
             let metaValue: string = metaData[1].trim();

@@ -11,5 +11,7 @@ node_modules/
 package-lock.json
 
 # Reports 
-/allure-report
-/allure-results
+/allure-report/
+/allure-results/
+/playwright-report/
+/playwright-html-report/

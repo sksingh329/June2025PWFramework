@@ -16,7 +16,7 @@ let searchData = [
 ]
 
 for(let product of searchData){
-    test.skip(`test product search ${product.searchkey}`, async({page}) =>{
+    test(`test product search ${product.searchkey}`, async({page}) =>{
         let login: LoginPage = new LoginPage(page);
         await login.gotToLoginPage();
         let homePage: HomePage = await login.doLogin('test123@test.com','test');
