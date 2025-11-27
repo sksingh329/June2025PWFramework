@@ -13,6 +13,18 @@ export default defineConfig({
   reporter: [
     ['html'],
     ['allure-playwright'],
+    ['playwright-html-reporter', { 
+      testFolder: 'tests',
+      title: 'OPEN CART HTML Report',
+      project: 'Open Cart',
+      release: '9.87.6',
+      testEnvironment: 'PROD',
+      embedAssets: true,
+      embedAttachments: true,
+      outputFolder: 'playwright-html-report',
+      minifyAssets: true,
+      startServer: false,
+    }]
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
