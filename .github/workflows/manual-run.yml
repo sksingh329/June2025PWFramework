@@ -247,7 +247,7 @@ jobs:
           echo "🔹 Browser: $BROWSER"
           echo ""
           echo "🏠 Main Dashboard:"
-          echo "   https://naveenanimation20.github.io/June2025PWFramework/"
+          echo "   https://sksingh329.github.io/June2025PWFramework/"
           echo ""
           echo "📊 ${ENV^^} Reports:"
           echo "   Playwright: https://sksingh329.github.io/June2025PWFramework/playwright-report/index.html"
