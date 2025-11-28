@@ -1,0 +1,3 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Fri Nov 28 12:59:56 UTC 2025","Fri Nov 28 13:00:01 UTC 2025","5259","Google Chrome","login-test.spec.ts","","","","Valid Login @login",""
+"passed","Fri Nov 28 13:00:05 UTC 2025","Fri Nov 28 13:00:08 UTC 2025","2805","Google Chrome","login-test.spec.ts","","","","Invalid Login",""
