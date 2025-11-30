@@ -30,8 +30,8 @@ export class LoginPage{
     /**
      * Navigate to Login Page 
      */
-    async gotToLoginPage(){
-        await this.page.goto('https://naveenautomationlabs.com/opencart/index.php?route=account/login');
+    async gotToLoginPage(baseURL: string | undefined){
+        await this.page.goto(`${baseURL}?route=account/login`);
     }
 
     /**

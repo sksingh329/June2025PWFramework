@@ -32,6 +32,13 @@ export default defineConfig({
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
+    baseURL: 'https://naveenautomationlabs.com/opencart/index.php',
+  },
+
+  /* Custom details */
+  metadata: {
+    username: 'test123@test.com',
+    password: 'test'
   },
 
   /* Configure projects for major browsers */

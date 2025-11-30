@@ -4,7 +4,7 @@ import { LoginPage } from './LoginPage.js';
 import { ResultsPage } from './ResultsPage.js';
 
 export class HomePage{
-    private readonly page: Page;
+    readonly page: Page;
     private readonly eleUtil: ElementUtil;
     private readonly logoutLink: Locator;
     private readonly search: Locator;

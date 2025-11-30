@@ -1,10 +1,8 @@
 import {parse} from 'csv-parse/sync';
 import fs from 'fs';
 
-import {test, expect, FrameLocator} from '@playwright/test';
+import { test, expect } from '../fixtures/baseFixtures'
 
-import { LoginPage } from '../pages/LoginPage.js'
-import { HomePage } from '../pages/HomePage.js';
 import { ResultsPage } from '../pages/ResultsPage.js';
 
 let searchData = [
@@ -16,10 +14,7 @@ let searchData = [
 ]
 
 for(let product of searchData){
-    test(`test product search ${product.searchkey}`, async({page}) =>{
-        let login: LoginPage = new LoginPage(page);
-        await login.gotToLoginPage();
-        let homePage: HomePage = await login.doLogin('test123@test.com','test');
+    test(`test product search ${product.searchkey}`, async({homePage}) =>{
         let resultsPage: ResultsPage =  await homePage.doSearch(product.searchkey);
         expect(await resultsPage.getSearchResultsCount()).toBe(product.resultsCount);
     });
@@ -37,10 +32,7 @@ let productSearchData: ProductSearchDataSchema[] = parse(fileContent, {
 });
 
 for(let product of productSearchData){
-    test(`test product search using csv ${product.searchkey}`, async({page}) =>{
-        let login: LoginPage = new LoginPage(page);
-        await login.gotToLoginPage();
-        let homePage: HomePage = await login.doLogin('test123@test.com','test');
+    test(`test product search using csv ${product.searchkey}`, async({homePage}) =>{
         let resultsPage: ResultsPage =  await homePage.doSearch(product.searchkey);
         expect(await resultsPage.getSearchResultsCount()).toBe(parseInt(product.resultsCount, 10));
     });
