@@ -38,7 +38,7 @@ test('test product meta data', async({homePage}) =>{
         expect.soft(actualProductFullDetails.get('Availability')).toBe('Out Of Stock');
 });
 
-test('test product pricing details', {tag:['@sanity']},async({homePage}) =>{
+test('test product pricing details', {tag:['@regression']},async({homePage}) =>{
         const resultsPage: ResultsPage =  await homePage.doSearch('macbook');
         const productInfoPage: ProductInfoPage = await resultsPage.selectProduct('MacBook Pro'); 
 
