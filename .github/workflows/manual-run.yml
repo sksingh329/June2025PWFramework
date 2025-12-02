@@ -87,6 +87,8 @@ jobs:
             --project="${{ github.event.inputs.browser }}"
         env:
           CI: true
+          APP_USERNAME: ${{ secrets.APP_USERNAME }}
+          APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
 
       - name: 📊 Upload HTML Report
         uses: actions/upload-artifact@v4

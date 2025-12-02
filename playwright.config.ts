@@ -1,4 +1,9 @@
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
+
+// Load environment variables from .env file
+dotenv.config();
+
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
@@ -37,8 +42,8 @@ export default defineConfig({
 
   /* Custom details */
   metadata: {
-    username: 'test123@test.com',
-    password: 'test'
+    username: process.env.APP_USERNAME,
+    password: process.env.APP_PASSWORD
   },
 
   /* Configure projects for major browsers */

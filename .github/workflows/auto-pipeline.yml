@@ -144,6 +144,8 @@ jobs:
         env:
           CI: true
           ALLURE_ENVIRONMENT: DEV
+          APP_USERNAME: ${{ secrets.APP_USERNAME }}
+          APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
 
       # ✅ Add environment label to Allure results
       - name: 🏷️ Add Allure environment info
@@ -241,6 +243,8 @@ jobs:
         env:
           CI: true
           ALLURE_ENVIRONMENT: QA
+          APP_USERNAME: ${{ secrets.APP_USERNAME }}
+          APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
 
       # ✅ Add environment label to Allure results
       - name: 🏷️ Add Allure environment info
@@ -339,6 +343,8 @@ jobs:
         env:
           CI: true
           ALLURE_ENVIRONMENT: STAGE
+          APP_USERNAME: ${{ secrets.APP_USERNAME }}
+          APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
 
       # ✅ Add environment label to Allure results
       - name: 🏷️ Add Allure environment info
@@ -437,6 +443,8 @@ jobs:
         env:
           CI: true
           ALLURE_ENVIRONMENT: PROD
+          APP_USERNAME: ${{ secrets.APP_USERNAME }}
+          APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
 
       # ✅ Add environment label to Allure results
       - name: 🏷️ Add Allure environment info
