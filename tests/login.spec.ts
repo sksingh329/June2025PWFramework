@@ -2,7 +2,7 @@ import { test, expect } from '../fixtures/baseFixtures';
 import { LoginPage } from '../pages/LoginPage';
 import { generateRandomEmail } from '../utils/StringUtils';
 
-test('Valid Login @login', async({ homePage }) =>{
+test('Valid Login @login', {tag: ['@sanity']},async({ homePage }) =>{
     await expect(homePage.page).toHaveTitle('My Account');
 });
 
