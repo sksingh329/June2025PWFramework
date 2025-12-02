@@ -16,7 +16,7 @@ export class HomePage{
         this.eleUtil = new ElementUtil(page);
         this.logoutLink = page.getByRole('link', { name: 'Logout' });
         this.search = page.getByRole('textbox', { name: 'Search' });
-        this.searchIcon = page.locator(`#search > span.input-group-btn > button.btn`);
+        this.searchIcon = page.locator('#search > span.input-group-btn > button.btn');
         this.login = page.getByRole('link', { name: 'Login' });
     }
 

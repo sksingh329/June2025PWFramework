@@ -10,7 +10,7 @@ export class LoginPage{
     private readonly emailId: Locator;
     private readonly password: Locator;
     private readonly loginBtn: Locator;
-    private readonly warningMessage: Locator
+    private readonly warningMessage: Locator;
 
     //page construtor
     /**
@@ -22,7 +22,7 @@ export class LoginPage{
         this.eleUtil = new ElementUtil(page);
         this.emailId = page.getByRole('textbox', { name: 'E-Mail Address' });
         this.password = page.getByRole('textbox', { name: 'Password' });
-        this.loginBtn = page.locator(`input[type="submit"][value="Login"]`);
+        this.loginBtn = page.locator('input[type="submit"][value="Login"]');
         this.warningMessage = page.locator('.alert.alert-danger.alert-dismissible');
     }
 

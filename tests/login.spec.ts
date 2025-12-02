@@ -1,5 +1,5 @@
-import { test, expect } from '../fixtures/baseFixtures'
-import { LoginPage } from '../pages/LoginPage'
+import { test, expect } from '../fixtures/baseFixtures';
+import { LoginPage } from '../pages/LoginPage';
 import { generateRandomEmail } from '../utils/StringUtils';
 
 test('Valid Login @login', async({ homePage }) =>{
@@ -14,9 +14,9 @@ test('Invalid Login', {
         {type: 'user story', description: 'Valid User Login'}
     ]
 },async({page, baseURL}) =>{
-    let login: LoginPage = new LoginPage(page);
+    const login: LoginPage = new LoginPage(page);
     await login.gotToLoginPage(baseURL);
     await login.doLogin(generateRandomEmail(),'test123');
-    let invalidLoginMessage = await login.getInvalidLoginMessage();
+    const invalidLoginMessage = await login.getInvalidLoginMessage();
     expect(invalidLoginMessage).toContain('Warning: No match for E-Mail Address and/or Password.');
 });

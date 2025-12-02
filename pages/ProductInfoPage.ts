@@ -16,12 +16,12 @@ export class ProductInfoPage{
         this.eleUtil = new ElementUtil(page);
         this.productHeader = page.locator('h1');
         this.productImages = page.locator('div#content img');
-        this.productMetaData = page.locator(`(//div[@id='content']//ul[@class='list-unstyled'])[1]/li`);
-        this.productPriceData = page.locator(`(//div[@id='content']//ul[@class='list-unstyled'])[2]/li`);
+        this.productMetaData = page.locator('(//div[@id=\'content\']//ul[@class=\'list-unstyled\'])[1]/li');
+        this.productPriceData = page.locator('(//div[@id=\'content\']//ul[@class=\'list-unstyled\'])[2]/li');
     }
 
     async getProductHeader(): Promise<string>{
-        let productHeader = await this.eleUtil.getElementInnerText(this.productHeader);
+        const productHeader = await this.eleUtil.getElementInnerText(this.productHeader);
         console.log(`Product header is: ${productHeader}`);
         return productHeader;
     }
@@ -52,21 +52,21 @@ export class ProductInfoPage{
     }
 
     private async getProductMetaData(){
-        let productMetaDataList: string[] = await this.productMetaData.allInnerTexts();
-        for (let meta of productMetaDataList){
-            let metaData: string[] = meta.split(':');
-            let metaKey: string = metaData[0].trim();
-            let metaValue: string = metaData[1].trim();
+        const productMetaDataList: string[] = await this.productMetaData.allInnerTexts();
+        for (const meta of productMetaDataList){
+            const metaData: string[] = meta.split(':');
+            const metaKey: string = metaData[0].trim();
+            const metaValue: string = metaData[1].trim();
             this.productMap.set(metaKey,metaValue);
         }
     }
 
     private async getProductPriceData(){
-        let productPriceDataList = await this.productPriceData.allInnerTexts();
+        const productPriceDataList = await this.productPriceData.allInnerTexts();
         console.log(`Product Price Details : ${productPriceDataList}`);
-        let productPrice = productPriceDataList[0].trim();
+        const productPrice = productPriceDataList[0].trim();
         this.productMap.set('price',productPrice);
-        let productExtTax = productPriceDataList[1].split(':')[1].trim();
+        const productExtTax = productPriceDataList[1].split(':')[1].trim();
         this.productMap.set('exttaxprice',productExtTax);
     }
 

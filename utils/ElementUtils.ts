@@ -1,4 +1,4 @@
-import { Page, Locator, expect, FrameLocator } from '@playwright/test';
+import { Page, Locator, FrameLocator } from '@playwright/test';
 import * as fs from 'fs';
 import * as path from 'path';
 import { randomBytes } from 'crypto';
@@ -213,7 +213,7 @@ export class ElementUtil{
      async sleep(timeout: number){
           console.log(`Sleep for ${timeout}`);
           await this.page.waitForTimeout(timeout);
-          console.log(`Sleep Done!!!`);
+          console.log('Sleep Done!!!');
      }
      
      //============Multiple elements============ 
@@ -265,17 +265,17 @@ export class ElementUtil{
      async scrollToTopOrBottom(top: boolean): Promise<void>{
           if (top == true){
                await this.page.evaluate(() => window.scrollTo(0, 0));
-               console.log(`Scrolled to top of page`);
+               console.log('Scrolled to top of page');
           }
           else{
                await this.page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-               console.log(`Scrolled to bottom of page`);
+               console.log('Scrolled to bottom of page');
           }
      }
 
      //============screenshot utils============
      async takePageScreenshot(fullPage:boolean = false, file_prefix: string = 'auto_',): Promise<void>{
-          let pageScreenshotPath: string = 'screenshots/page/';
+          const pageScreenshotPath: string = 'screenshots/page/';
           // Create the folder if it doesn’t exist
           if (!fs.existsSync(pageScreenshotPath)) {
                fs.mkdirSync(pageScreenshotPath, { recursive: true });
@@ -295,7 +295,7 @@ export class ElementUtil{
      }
 
      async takeElementScreenshot(locator: customLocator,file_prefix: string = 'auto_',): Promise<void>{
-          let elementScreenshotPath: string = 'screenshots/elements/';
+          const elementScreenshotPath: string = 'screenshots/elements/';
           // Create the folder if it doesn’t exist
           if (!fs.existsSync(elementScreenshotPath)) {
                fs.mkdirSync(elementScreenshotPath, { recursive: true });

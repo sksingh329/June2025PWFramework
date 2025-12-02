@@ -14,7 +14,7 @@ export class ResultsPage{
     }
 
     async getSearchResultsCount(): Promise<number>{
-        let resultCount: number = await this.results.count();
+        const resultCount: number = await this.results.count();
         console.log(`Result count: ${resultCount}`);
         return resultCount;
     }
