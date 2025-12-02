@@ -1,3 +1,2 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"failed","Tue Dec 02 14:29:45 UTC 2025","Tue Dec 02 14:29:48 UTC 2025","2425","","","","","","[DEV] test product pricing details",""
-"passed","Tue Dec 02 14:29:35 UTC 2025","Tue Dec 02 14:29:40 UTC 2025","4988","","","","","","[DEV] Invalid Login",""
+"passed","Tue Dec 02 14:35:05 UTC 2025","Tue Dec 02 14:35:08 UTC 2025","3249","","","","","","[DEV] Invalid Login",""

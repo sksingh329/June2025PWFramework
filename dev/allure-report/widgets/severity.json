@@ -1,1 +1,1 @@
-[{"uid":"5a119bd2ecd9af34","name":"[DEV] Invalid Login","time":{"start":1764685775957,"stop":1764685780945,"duration":4988},"status":"passed","severity":"normal"},{"uid":"27fe9b6104e1fd70","name":"[DEV] test product pricing details","time":{"start":1764685785872,"stop":1764685788297,"duration":2425},"status":"failed","severity":"normal"}]
+[{"uid":"1b4bd7f091645446","name":"[DEV] Invalid Login","time":{"start":1764686105054,"stop":1764686108303,"duration":3249},"status":"passed","severity":"normal"}]
