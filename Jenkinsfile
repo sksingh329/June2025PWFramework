@@ -441,13 +441,23 @@ pipeline {
             }
             post {
                 always {
-                    // Generate Combined Allure Report using Allure Jenkins Plugin
-                    allure([
-                        includeProperties: true,
-                        jdk: '',
-                        properties: [],
-                        reportBuildPolicy: 'ALWAYS',
-                        results: [[path: 'allure-results-combined']]
+                    // Generate Combined Allure Report using npx
+                    script {
+                        sh '''
+                            echo "Generating Combined Allure Report..."
+                            npx allure generate allure-results-combined --clean -o allure-report-combined || true
+                        '''
+                    }
+                    
+                    // Publish Combined Allure Report as HTML
+                    publishHTML(target: [
+                        allowMissing: true,
+                        alwaysLinkToLastBuild: true,
+                        keepAll: true,
+                        reportDir: 'allure-report-combined',
+                        reportFiles: 'index.html',
+                        reportName: 'Allure Report - Combined (All Environments)',
+                        reportTitles: 'Combined Allure Report'
                     ])
                 }
             }
