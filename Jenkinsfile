@@ -12,7 +12,9 @@
 //
 // Required Jenkins Credentials:
 // ------------------------------------
-// slack-token          - Slack Webhook Token (Secret text)
+// slack-webhook-token  - Slack Webhook Token (Secret text)
+// APP_USERNAME         - OpenCart Username (Secret text)
+// APP_PASSWORD         - OpenCart Password (Secret text)
 // ============================================
 //
 // Required Jenkins Plugins:
@@ -38,7 +40,10 @@ pipeline {
         PLAYWRIGHT_BROWSERS_PATH = "${WORKSPACE}/.cache/ms-playwright"
         SLACK_WEBHOOK_URL = credentials('slack-webhook-token')
         // Email recipients - update these with your actual email addresses
-        EMAIL_RECIPIENTS = 'naveenanimation20@gmail.com, submit@naveenautomationlabs.com'
+        EMAIL_RECIPIENTS = 'sksingh329@gmail.com'
+        // OpenCart credentials
+        APP_USERNAME = credentials('APP_USERNAME')
+        APP_PASSWORD = credentials('APP_PASSWORD')
     }
 
     options {
